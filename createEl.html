@@ -96,7 +96,7 @@
 
         var deleteBtn = createEl.querySelector('.btn-danger');
         deleteBtn.addEventListener('click', function(){
-          this.remove();
+          this.parentElement.remove();
         })
 
         listGroup.appendChild(createEl);
