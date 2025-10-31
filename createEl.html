@@ -69,5 +69,18 @@
         }
     
     */
+      var inputMsg = document.querySelector('#inputMsg');
+      var btnAdd = document.querySelector('#btnAdd');
+      var listGroup = document.querySelector('#list-group');
+
+      btnAdd.addEventListener('click', function(e){
+        e.preventDefault();
+
+        var createEl = document.createElement('li');
+        createEl.innerHTML = inputMsg.value;
+
+        listGroup.appendChild(createEl);
+        inputMsg.value = "";
+      });
   </script>
 </html>
