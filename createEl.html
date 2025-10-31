@@ -67,6 +67,9 @@
         document.querySelector('').addEventListener("click", function (e) {
             e.preventDefault();
         }
+
+
+        삭제하고싶은요소.remove();
     
     */
       var inputMsg = document.querySelector('#inputMsg');
@@ -76,8 +79,25 @@
       btnAdd.addEventListener('click', function(e){
         e.preventDefault();
 
+
+        if(!inputMsg.value){
+          return;
+        }
+
         var createEl = document.createElement('li');
-        createEl.innerHTML = inputMsg.value;
+        createEl.classList.add('list-group-item');
+        // createEl.style.display = 'flex';
+        // createEl.style.justifyContent = 'space-between';
+        createEl.style.cssText = "display:flex;justify-content:space-between;";
+        createEl.innerHTML = `
+        <span>${inputMsg.value}</span>
+        <button class="btn btn-danger btn-sm">삭제</button>
+        `;
+
+        var deleteBtn = createEl.querySelector('.btn-danger');
+        deleteBtn.addEventListener('click', function(){
+          this.remove();
+        })
 
         listGroup.appendChild(createEl);
         inputMsg.value = "";
